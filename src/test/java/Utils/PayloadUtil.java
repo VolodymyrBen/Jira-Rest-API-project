@@ -101,4 +101,31 @@ public class PayloadUtil {
     }
 
 
+    public static String getSprintPayload(String name, String startDate, String endDate, int boardID, String goal){
+
+        return "{\n" +
+                "  \"name\": \""+name+"\",\n" +
+                "  \"startDate\": \""+startDate+"\",\n" +
+                "  \"endDate\": \""+endDate+"0\",\n" +
+                "  \"originBoardId\": "+boardID+",\n" +
+                "  \"goal\": \""+goal+"\"\n" +
+                "}\n";
+    }
+
+    public static String getIssuePayloadSprint(String summary,String description, String issueType, int sprintID){
+        return "{\n" +
+                "    \"fields\": {\n" +
+                "       \"project\":\n" +
+                "       {\n" +
+                "          \"key\": \"GROUP5\"\n" +
+                "       },\n" +
+                "       \"summary\": \""+summary+"\",\n" +
+                "       \"description\": \""+description+"\",\n" +
+                "       \"issuetype\": {\n" +
+                "          \"name\": \""+issueType+"\"\n" +
+                "       },\n" +
+                "       \"customfield_10101\": "+sprintID+"\n" +
+                "    }\n" +
+                "}   ";
+    }
 }
