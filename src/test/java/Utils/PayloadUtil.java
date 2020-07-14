@@ -1,7 +1,9 @@
 package Utils;
 
-import API.JiraAPI.JiraPojo.JiraPojoCookie;
-import API.JiraAPI.JiraSetBody;
+
+
+import PojoAPI.JiraPojoCookie;
+import PojoAPI.JiraSetBody;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -76,7 +78,7 @@ public class PayloadUtil {
         post.setHeader("Content-Type", "application/json");
 
 
-        JiraSetBody jiraSetBody = new JiraSetBody("Volodymyr", "StepanSraka");
+        JiraSetBody jiraSetBody = new JiraSetBody(ConfigReader.getProperty("jiraUsername"), ConfigReader.getProperty("jiraPassword"));
 
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.writeValue(new File("target/jira1.json"), jiraSetBody);
