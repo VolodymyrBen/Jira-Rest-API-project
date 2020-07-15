@@ -20,8 +20,13 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class PayloadUtil {
+
+    public static List<Integer> sprintIDs = new ArrayList<>();
 
     public static String getPetPayload(int id,String name,String status){
         return "{\n" +
@@ -106,7 +111,7 @@ public class PayloadUtil {
         return "{\n" +
                 "  \"name\": \""+name+"\",\n" +
                 "  \"startDate\": \""+startDate+"\",\n" +
-                "  \"endDate\": \""+endDate+"0\",\n" +
+                "  \"endDate\": \""+endDate+"\",\n" +
                 "  \"originBoardId\": "+boardID+",\n" +
                 "  \"goal\": \""+goal+"\"\n" +
                 "}\n";
@@ -127,5 +132,13 @@ public class PayloadUtil {
                 "       \"customfield_10101\": "+sprintID+"\n" +
                 "    }\n" +
                 "}   ";
+    }
+
+
+    public static String[] beginning = {"Story", "Bug"};
+    public static Random rand = new Random();
+
+    public static String generateStatus() {
+        return beginning[rand.nextInt(beginning.length)];
     }
 }
